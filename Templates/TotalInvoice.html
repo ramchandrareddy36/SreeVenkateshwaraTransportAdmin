@@ -1,0 +1,74 @@
+﻿<div ng-controller="TotalInvoiceController">
+    <div class="col-md-12 pad0 appcolor">
+        <div ng-show="InvoiceGrid">
+            <table class="table dataTable table-bordered table-striped table-actions table-header-clr">
+                <thead>
+                    <tr>
+                        <th style="width:50px;">
+                            S.No
+                        </th>
+                        <th>
+                            Invoice Date
+                        </th>
+                        <th>
+                            Vehical Number
+                        </th>
+                        <th>
+                            GP Number
+                        </th>
+                        <th>
+                            Quantity in MT
+                        </th>
+                        <th>
+                            Rate/MT
+                        </th>
+                        <th>
+                            Total
+                        </th>
+                        <th>
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--<tr ng-repeat="i in totalData">-->
+                    <tr ng-repeat="i in b=(totalData | orderBy:['UpdatedOn']:true:reverse | filter:Name)  ">
+                        <!--| startFrom:(currentPage-1)*itemsPerPage | limitTo:itemsPerPage-->
+                        <td width="50" ng-bind="$index+1+rownumber"></td>
+                        <td ng-bind="i.Name"></td>
+                        <td ng-bind="i.Message"></td>
+                        <td>
+                            <span type="button" class="fa fa-fw fa-pencil" style="cursor:pointer" title="Edit" ng-click="Edit(i)"></span>
+                            <!--<span type="button" class="fa fa-fw fa-eye" style="cursor:pointer" title="View" data-toggle="modal" data-target="#myModal" ng-click="View(i.id,'View',i.jsondata,tablename)"></span>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="dataTables_info" role="Status" aria-live="polite" style="float:left;">
+                <label>
+                    Show <select ng-model="pageitems" ng-change="changeitems()" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+                        <option value="">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="50">All</option>
+                    </select> entries |
+                </label>
+                <label class="dataTables_info" role="Status" aria-live="polite">
+                    Showing {{beginitem}} to {{enditem}} of {{popupfiltereditems}} entries
+                </label>
+            </div>
+            <!--Roles Data pagination -->
+            <div class="dataTables_paginate paging_simple_numbers pull-right">
+                <pagination boundary-links="true"
+                            max-size="3"
+                            items-per-page="itemsPerPage"
+                            total-items="popupfiltereditems"
+                            ng-model="currentPage"
+                            ng-change="pageChanged(currentPage)" class="pagination-sm" style="margin:0px;"></pagination>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+﻿<div ng-controller="DashBoardController">
+    <section class="box-group" ng-cloak>
+        <div class="">
+            <div class="row StoreAssistant" ng-show="Dashboard">
+                <div class="col-md-3 col-sm-6 col-xs-12 tot-stock">
+                    <div class="box-container colored" style="cursor:pointer;background:#7abd99;" ng-click="GaDetails()">
+                        <div class="box-body">
+                            <img src="../dist/img/Ganesh.png" class="box-icn" style="background-color:#d6605c" />
+                            <div class="number bold">{{DashboardDetails.GaInvoiceCount}}</div>
+                            <div class="text">GA Invoices</div>
+                        </div>
+                        <div class="box-foot">
+                            <ul class="list-inline">
+                                <li>Total Amount</li>
+                                <li class="text-right bold">{{DashboardDetails.GaInvoiceAmount| INR}}</li>
+                            </ul><br />
+                            <ul class="list-inline">
+                                <li>Paid Amount</li>
+                                <li class="text-right bold">{{DashboardDetails.GaPaidAmount| INR}}</li>
+                            </ul><br />
+                            <ul class="list-inline">
+                                <li>Due Amount</li>
+                                <li class="text-right bold">{{DashboardDetails.GaDueAmount| INR}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12 tot-stock">
+                    <div class="box-container colored" style="cursor:pointer;background:#7ea09d;" ng-click="SvtDetails()">
+                        <div class="box-body">
+                            <img src="../dist/img/image.png" class="box-icn" style="background-color:#d6605c" />
+                            <div class="number bold">{{DashboardDetails.SvtInvoiceCount}}</div>
+                            <div class="text">SVT Invoices</div>
+                        </div>
+                        <div class="box-foot">
+                            <ul class="list-inline">
+                                <li>Total Amount</li>
+                                <li class="text-right bold">{{DashboardDetails.SvtInvoiceAmount| INR}}</li>
+                            </ul><br />
+                            <ul class="list-inline">
+                                <li>Paid Amount</li>
+                                <li class="text-right bold">{{DashboardDetails.SvtPaidAmount| INR}}</li>
+                            </ul><br />
+                            <ul class="list-inline">
+                                <li>Due Amount</li>
+                                <li class="text-right bold">{{DashboardDetails.SvtDueAmount| INR}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-right" style="padding-left:35%;">
+                    <input type="button" class="btn btn-prime" ng-click="CreateGAInvoice()" value="GA Invoice" /><br /><br />
+                    <input type="button" class="btn btn-success" ng-click="CreateSVTInvoice()" value="SVT Invoice" /><br /><br />
+                    <input type="button" class="btn btn-primary" ng-click="SalesOutStanding()" value="Sales Outstanding" /><br /><br />
+                    <input type="button" class="btn btn-warning" ng-click="PurchaseOutStanding()" value="Purchase Outstanding" /><br /><br />
+                    <input type="button" class="btn btn-danger" ng-click="DailyVechileList()" value="Daily Vechile List" /><br /><br />
+                    <input type="button" class="btn btn-theme-dark" ng-click="Adjustments()" value="Adjustments" />
+                </div>
+            </div>
+            <div class="modal fade" tabindex="-1" id="EditFormModal"
+                 data-keyboard="false" data-backdrop="static" ng-model="EditFormModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="" id="printSectionId">
+                            <div class="container">
+                                <button type="button" style="color:red;padding-top:10px;" ng-click="close()" class="close closeIcon-clr" data-dismiss="modal">&times;</button>
+                                <h4 class="bold p5 text-uppercase m-b-none">Payment Details</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div> 

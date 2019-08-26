@@ -1,0 +1,56 @@
+﻿<style>
+    .content-wrapper,
+    .main-footer {
+        margin-left: 0px;
+    }
+</style>
+<div ng-controller="loginController">
+    <div class="login-box">
+        <div class="login-box-body">
+            <div class="login-logo">
+                <a href=""><b>i</b>HubMultiStoreAdmin</a>
+            </div>
+            <form name="LoginForm">
+                <div class="form-group has-feedback" ng-class="{ 'has-error' : LoginForm.userName.$invalid && !LoginForm.userName.$pristine }">
+                    <input type="email" ng-model="userName" name="userName" class="form-control" placeholder="Email" required>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    <p ng-show="showMsgs && LoginForm.userName.$error.required" style="color:red;">Email Id is required</p>
+                </div>
+                <div class="form-group has-feedback" ng-class="{ 'has-error' : LoginForm.password.$invalid && !LoginForm.password.$pristine }">
+                    <input type="password" ng-model="password" name="password" class="form-control" placeholder="Password" required>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <p ng-show="showMsgs && LoginForm.password.$error.required" style="color:red;">Password is required</p>
+                </div>
+                <label ng-show="ErrorMsg" class="login-box-msg" style="color:red">{{loginerror}}</label>
+
+                <div class="row">
+                    <div class="col-xs-8" ng-show="remembershow">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox"> Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary" ng-show="Signinbutton" ng-click="Admin_SignIn('LoginForm')">Sign In</button>
+                    </div>
+                </div>
+            </form>
+
+            <form name="OTPForm" ng-show="OTPFormShow">
+                <div class="">
+                    <div class="form-group has-feedback" ng-class="{ 'has-error' : OTPForm.OTP.$invalid && !OTPForm.OTP.$pristine }">
+                        <input type="text" ng-model="AdminOTP" name="OTP" autocomplete="off" class="form-control" placeholder="Enter OTP" style="width:150px;" required>
+                        <p ng-show="showMsgs && OTPForm.OTP.$error.required" style="color:red;">OTP is required</p>
+                        <label ng-show="IncorrectOTP" class="login-box-msg" style="color:red">{{OTPerror}}</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat" ng-click="Submit()">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <a href="#">forgot password?</a><br />
+            <span ng-show="showMsgs" style="color:red">  {{loginerror}}</span>
+        </div>
+    </div>
+</div>

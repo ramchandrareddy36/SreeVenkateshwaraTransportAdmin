@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html ng-app="iHub">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sree Venkateshwara Transport</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <base href="/" />
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+    <!--Category Style-->
+    <link href="dist/css/skins/CatTreecss.css" rel="stylesheet" />
+    <link href="dist/css/angularTree.Sub.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <!--// <link rel="stylesheet" href="dist/css/AdminLTE.min.css">-->
+    <link rel="stylesheet" href="Content/Site.css">
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link href="dist/css/angular-ui-tree.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+    <link href="dist/css/AdminLTE.css" rel="stylesheet" />
+    <link href="dist/css/xeditable.min.css" rel="stylesheet" />
+    <link href="dist/css/angular-block-ui.min.css" rel="stylesheet" />
+    <link href="dist/css/angular-ngconfirm.css" rel="stylesheet" />
+    <link href="dist/css/xeditable.min.css" rel="stylesheet" />
+    <!-- Google Font -->
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
+    <link href="dist/css/ihub.css" rel="stylesheet">
+    <link href="dist/css/Invoice.css" rel="stylesheet" />
+    <link href="dist/css/InvoiceStyle.css" rel="stylesheet" />
+    <link href="dist/css/autocomplete.css" rel="stylesheet" />
+</head>
+<body class="hold-transition skin-blue sidebar-mini  sidebar-collapse" ng-controller="mainController" ng-cloak>
+    <div class="wrapper">
+        <header class="main-header" ng-show="authentication.IsAuthenticated">
+            <!-- Logo -->
+            <a href="" class="logo" ng-click="HomePage()">
+                <span class="logo-mini"><b>SVT</b></span>
+                <span class="logo-lg"><b>S</b>ree</span>
+            </a>
+            <nav class="navbar navbar-static-top">
+                <!--<a href="#" class="logo">Sree Venkateshwara Transport</a>-->
+            </nav>
+        </header>
+        <div class="content-wrapper">
+            <section class="content-header" ng-show="authentication.IsAuthenticated">
+                <h1>
+                    <span ng-bind="ScreenName"></span>
+                </h1>
+            </section>
+            <section class="content" ng-cloak>
+                <ng-view></ng-view>
+            </section>
+        </div>
+        <!--<footer class="main-footer">
+            <strong>Copyright &copy; Sree Venkateshwara Transport.</strong> All rights
+            reserved.
+        </footer>-->
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <!-- ./wrapper -->
+    <!-- jQuery 3 -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+    <script src="dist/js/script.js"></script>
+    <script src="dist/frameworks/angular.min.js"></script>
+    <script src="dist/frameworks/angular-route.min.js"></script>
+    <script src="dist/frameworks/angular-resource.min.js"></script>
+    <!--<script src="dist/js/angular-sanitize.min.js"></script>-->
+    <script src="dist/js/ngStorage.min.js"></script>
+    <!--<script src="dist/js/ui-bootstrap-tpls-0.11.0.js"></script>-->
+    <!--<script src="dist/js/ui-bootstrap-tpls-0.14.3.min.js"></script>-->
+    <!--<script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>-->
+    <!--angular tree-->
+    <script src="dist/js/angularTreeview.min.js"></script>
+    <script src="dist/js/angularTreeview.Sub.js"></script>
+    <script src="dist/js/angular-linq.min.js"></script>
+    <script src="dist/js/angular-ui-tree.js"></script>
+    <script src="dist/js/xeditable.min.js"></script>
+    <script src="dist/js/constant.js"></script>
+
+    <!--<script src="dist/angular-ckeditor.js"></script>
+    <script src="dist/ckeditor.js"></script>
+    <script src="dist/ngCkeditor-v2.0.1.js"></script>-->
+    <script src="dist/js/angular1-confirm .js"></script>
+    <script src="dist/js/autocomplete.js"></script>
+    <script src="main.js"></script>
+    <script src="Scripts/Controllers/mainController.js"></script>
+    <script src="Scripts/Services/AuthenticationFactory.js"></script>
+    <script src="dist/js/constant.js"></script>
+    <script src="dist/js/angular-block-ui.min.js"></script>
+    <script src="Scripts/Services/loginService.js"></script>
+    <script src="Scripts/Services/AdminService.js"></script>
+    <script src="dist/js/json-export-excel.js"></script>
+    <script src="dist/js/FileSaver.js"></script>
+    <script src="Scripts/Services/SvTransportService.js"></script>
+</body>
+</html>

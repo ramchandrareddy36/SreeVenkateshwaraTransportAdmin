@@ -1,0 +1,192 @@
+﻿<div class="" ng-controller="GAInvoiceController">
+    <div class="col-md-12">
+        <form class="form-horizontal" name="InvoiceForm">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            Select Company Name 
+                        </label>
+                        <div class="col-md-8">
+                            <select style="cursor:pointer" ng-model="CompanyID" ng-options="x.Company_ID as x.Company_Name for x in CompanyList" class="form-control" ng-change="SelectCompany(CompanyID)">
+                                <option value=""> -- Select Company-- </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            Invoice Date 
+                        </label>
+                        <div class="col-md-8" ng-class="{'has-error':InvoiceForm.Invoice_Date.$invalid && !InvoiceForm.Invoice_Date.$pristine}">
+                            <input type="date" ng-model="Invoice_Date" name="Invoice_Date" class="form-control remove-arrows" placeholder="Invoice Date" required />
+                            <p ng-show="showMsgs && InvoiceForm.Invoice_Date.$error.required" class="amtclr" style="color:red;">Invoice Date is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            Purchase Order Number 
+                        </label>
+                        <div class="col-md-8">
+                            <div class="" ng-class="{'has-error':InvoiceForm.Po_num.$invalid && !InvoiceForm.Po_num.$pristine}">
+                                <input type="number" ng-model="Po_num" name="Po_num" class="form-control remove-arrows" placeholder="Purchase Order Number" required />
+                                <span ng-show="ShowMsgs && InvoiceForm.Po_num.$error.required" style="color: red">Purchase Order Number is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            GST Percentage 
+                        </label>
+                        <div class="col-md-8">
+                            <div class="" ng-class="{'has-error':InvoiceForm.GST.$invalid && !InvoiceForm.GST.$pristine}">
+                                <input type="number" ng-model="GST" name="GST" class="form-control remove-arrows" placeholder="GST Percentage" required />
+                                <span ng-show="ShowMsgs && InvoiceForm.GST.$error.required" style="color: red">GST Percentage is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            Purchase Order Date 
+                        </label>
+                        <div class="col-md-8" ng-class="{'has-error':InvoiceForm.Po_Date.$invalid && !InvoiceForm.Po_Date.$pristine}">
+                            <input type="date" ng-model="Po_Date" name="Po_Date" class="form-control remove-arrows" placeholder="Purchase Order Date" required />
+                            <p ng-show="showMsgs && InvoiceForm.Po_Date.$error.required" class="amtclr" style="color:red;">PO Date is required</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            Material Description 
+                        </label>
+                        <div class="col-md-8">
+                            <div class="" ng-class="{'has-error':InvoiceForm.Material_Desc.$invalid && !InvoiceForm.Material_Desc.$pristine}">
+                                <input type="text" ng-model="Material_Desc" name="Material_Desc" class="form-control" placeholder="Material Description" required />
+                                <span ng-show="ShowMsgs && InvoiceForm.Material_Desc.$error.required" style="color: red">Material Description is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            HSN Code 
+                        </label>
+                        <div class="col-md-8">
+                            <div class="" ng-class="{'has-error':InvoiceForm.HsnCode.$invalid && !InvoiceForm.HsnCode.$pristine}">
+                                <input type="number" ng-model="HsnCode" name="HsnCode" class="form-control remove-arrows" placeholder="HSN Code" required />
+                                <span ng-show="ShowMsgs && InvoiceForm.HsnCode.$error.required" style="color: red">HSN Code is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">
+                            Cess Per MT 
+                        </label>
+                        <div class="col-md-8">
+                            <div class="" ng-class="{'has-error':InvoiceForm.CessAmount.$invalid && !InvoiceForm.CessAmount.$pristine}">
+                                <input type="number" ng-model="CessAmount" name="CessAmount" class="form-control remove-arrows" placeholder="Cess Amount" required />
+                                <span ng-show="ShowMsgs && InvoiceForm.CessAmount.$error.required" style="color: red">Cess Amount is required.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="" ng-show="GridShow">
+                <table class="table table-bordered table-condensed table-striped">
+                    <tr class="fc-theme">
+                        <th class="sbold" style="width:1%">S.No</th>
+                        <th class="sbold text-center">DC Date</th>
+                        <th class="sbold text-center">Vechile No</th>
+                        <th class="sbold text-center">DC Number</th>
+                        <th class="sbold text-center">Qty in MT</th>
+                        <th class="sbold text-center">Rate/MT</th>
+                        <th class="sbold text-center">Total </th>
+                    </tr>
+                    <tr class="" ng-repeat="Invoice in InvoiceDetailsList">
+                        <td class="">{{$index+1}}</td>
+                        <td class="text-center">{{Invoice.DcDate | date:'dd-MM-yyyy'}}</td>
+                        <td class="text-center">{{Invoice.VehicleNumber}}</td>
+                        <td class="text-center">{{Invoice.DCNum}}</td>
+                        <td class="text-center">{{Invoice.Quantity}}</td>
+                        <td class="text-center">{{Invoice.UnitPrice | INR}}</td>
+                        <td class="text-center">{{Invoice.TotalAmount | INR}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12" style="padding-top:25px">
+                <ul class="list-inline order-history-search">
+                    <li class="search-date">
+                        <div class="form-inline">
+                            <div class="input-group input-append date">
+                                <span class="input-group-addon" style="padding: 6px 4px;">Dc Date</span>
+                                <input type="date" style="max-width:175px" class="form-control" ng-model="DcDate" name="DcDate" placeholder="DD-MM-YYYY" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-date">
+                        <div class="form-inline">
+                            <div class="input-group input-append date">
+                                <span class="input-group-addon" style="padding: 6px 4px;">Vehicle Number</span>
+                                <input type="text" style="max-width:175px" class="form-control" ng-model="Vehicle_num" name="Vehicle_num" placeholder="Vehicle Number" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-date">
+                        <div class="form-inline">
+                            <div class="input-group input-append date">
+                                <span class="input-group-addon" style="padding: 6px 4px;"> DC Number</span>
+                                <input type="number" style="max-width:175px" ng-model="DcNum" name="DcNum" placeholder="DC Number" class="to_date form-control remove-arrows" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-date">
+                        <div class="form-inline">
+                            <div class="input-group input-append date">
+                                <span class="input-group-addon" style="padding: 6px 4px;">Quantity in MT</span>
+                                <input type="number" style="max-width:175px" ng-model="Quantity" name="Quantity" placeholder="Quantity in MT" class="to_date form-control remove-arrows" />
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="list-inline order-history-search">
+                    <li class="search-date">
+                        <div class="form-inline">
+                            <div class="input-group input-append date">
+                                <span class="input-group-addon" style="padding: 6px 4px;">Rate per MT</span>
+                                <input type="number" style="max-width:175px" ng-model="Price" name="Price" placeholder="Rate per MT" class="to_date form-control remove-arrows" ng-blur="CalculateTotal()" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-date">
+                        <div class="form-inline">
+                            <div class="input-group input-append date">
+                                <span class="input-group-addon" style="padding: 6px 4px;">Total Value</span>
+                                <input type="number" style="max-width:175px" ng-model="Totalvalue" name="TotalValue" placeholder="Total Value" class="to_date form-control remove-arrows" readonly />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="search-btn">
+                        <input type="button" class="btn btn-prime" value="Add" ng-click="Add()" />
+                        <!--<input type="button" class="btn btn-light" value="Reset" ng-click="Reset(Orders,orderPaymentmode)" />-->
+                    </li>
+                </ul>
+            </div>
+            <div class="">
+                <div class="col-md-offset-4 col-md-6" style="padding-top:25px">
+                    <div class="pull-left">
+                        <button class="btn btn-primary" id="btnSave" value="Save" ng-click="GenerateInvoice('InvoiceForm')">Generate Invoice</button>&nbsp;&nbsp;
+                    </div>
+                    <div class="pull-left">
+                        <button class="btn btn-default" value="Cancel" ng-click="Cancel()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<style>
+    .remove-arrows::-webkit-inner-spin-button,
+    .remove-arrows::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+</style>

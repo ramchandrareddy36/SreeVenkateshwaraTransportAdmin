@@ -1,0 +1,120 @@
+/* Compatibility styles for frameworks like bootstrap, foundation e.t.c */
+.xzoom-source img, .xzoom-preview img, .xzoom-lens img{
+  display: block;
+  max-width: none;
+  max-height: none;}
+
+/* --------------- */
+
+/* xZoom Styles below */
+
+.xzoom-container{ display: inline-block;}
+
+.xzoom-thumbs{text-align: center;margin-top: 10px;display: table;margin-left: 0px;position: absolute;top: 0;width: 60px;left: 10px;}
+
+.xzoom-thumbs a{width: 60px;margin-bottom: 10px;float: left;border: none;}
+
+.xzoom-thumbs a img{width: 60px;border: 1px solid #f7f7f7}
+
+.xzoom { 
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);  
+  margin-bottom: 15px; 
+}
+
+.xzoom2, .xzoom3, .xzoom4, .xzoom5 {
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);  
+  margin-bottom: 15px;  }
+
+/* Thumbs */
+.xzoom-gallery, .xzoom-gallery2, .xzoom-gallery3, .xzoom-gallery4, .xzoom-gallery5 { 
+  border: 1px solid #cecece; 
+  margin-left: 5px;
+  margin-bottom: 10px;}
+
+.xzoom-source, .xzoom-hidden {
+  display: block;
+  position: static;
+  float: none;
+  clear: both;}
+
+/* Everything out of border is hidden */
+.xzoom-hidden {
+  overflow: hidden;}
+
+/* Preview */
+.xzoom-preview {
+  border: 1px solid #888;
+  background: #fff;
+  box-shadow: -0px -0px 10px rgba(0,0,0,0.50);width:650px!important;height: 550px!important;}
+
+
+/* Lens */
+.xzoom-lens {
+  border: 1px solid #555;
+  box-shadow: -0px -0px 10px rgba(0,0,0,0.50);
+  cursor: crosshair;
+}
+
+/* Loading */
+.xzoom-loading {
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  opacity: .7;
+  background: url(../images/xloading.gif);
+  width: 48px;
+  height: 48px;
+}
+
+/* Additional class that applied to thumb when it is active */
+.xactive {  
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(74,169,210,1);
+  box-shadow: 0px 0px 3px 0px rgba(74,169,210,1); 
+  border: 1px solid #4aaad2;}
+
+
+/* Caption */
+.xzoom-caption {
+  position: absolute;
+  bottom: -43px;
+  left: 0;
+  background: #000;
+  width: 100%;
+  text-align: left;}
+
+
+.xzoom-caption span {
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: block;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 10px;}
+
+
+@media (max-width:1600px) and (min-width:1200px){
+.xzoom-preview {
+  border: 1px solid #888;
+  background: white;
+  box-shadow: -0px -0px 10px rgba(0,0,0,0.50);width:650px!important;height: 500px!important;}
+
+}
+
+
+@media (max-width:768px) {
+.zoomimg img{     width: 90%!important;
+    margin: auto;
+    display: table;}
+.xzoom-thumbs {
+    top: 100%;
+    left: 10px;
+	margin-top: 0px;
+    width: 90%;
+    background: #fff;
+	z-index: 10}
+}

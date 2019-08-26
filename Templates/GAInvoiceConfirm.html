@@ -1,0 +1,224 @@
+<div class="" id="printSectionId" ng-controller="GAInvoiceConfirmController">
+    <!--======================================Order Confirm Page Page With Bokking Amount Products================================================= -->
+    <div class="OrderConfirm print-hide">
+        <div class="container" style="max-width:960px" ng-cloak>
+            <!-- Main content -->
+            <div class="box-container">
+                <div id="header">
+                    <div class="InvoiceTitleHeader">
+                        <a href="" ng-click="Print('printSectionId')" class="InvoiceBtn print-hide">
+                            <i class="fa fa-print"></i> <span class="sbold">Print Invoice</span>
+                        </a>
+                        <h4 class="ThankYou">Tax-Invoice</h4>
+                    </div>
+                    <div class="InvoiceContainer">
+                        <div class="InvoiceHead">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="img-container InvoiceLogo">
+                                        <img src="../dist/img/Ganesh.png" alt="Logo" class="" />
+                                    </div>
+                                    <div class="bold" style="font-size:large">GANESH AGENCIES</div>
+                                </div>
+                                <div class="col-sm-offset-4 col-sm-4">
+                                    <table class="table custom-table table-condensed">
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.Address1}},</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.Address2}},</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.Address3}}.</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.MobileNumber}}.</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.EmailID}}.</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="InvoiceCustomerDetail">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <h4 class="m-b-5 fc-theme sbold">To</h4>
+                                    <table class="table custom-table table-condensed">
+                                        <tr>
+                                            <td style="padding:2px;">M/s .{{SvtDetails.CompanyName}},</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.HouseNum}},</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.Add1}},{{SvtDetails.Add2}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;">{{SvtDetails.Add3}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:2px;"><b>GSTN :</b>{{SvtDetails.GSTNUM}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-sm-offset-8">
+                                    <table class="table custom-table table-condensed">
+                                        <tr>
+                                            <th style="padding:2px;">Invoice No</th>
+                                            <td style="padding:2px;">:</td>
+                                            <td style="padding:2px;">{{SvtDetails.SVTInvoiceID}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding:2px;">Invoice Date</th>
+                                            <td style="padding:2px;">:</td>
+                                            <td style="padding:2px;">{{SvtDetails.InvoiceDate|date:'dd-MM-yyyy'}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding:2px;">SO Num</th>
+                                            <td style="padding:2px;">:</td>
+                                            <td style="padding:2px;">{{SvtDetails.SONum}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding:2px;">Mine</th>
+                                            <td style="padding:2px;">:</td>
+                                            <td style="padding:2px;">{{SvtDetails.Mine}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding:2px;">Material Desc</th>
+                                            <td style="padding:2px;">:</td>
+                                            <td style="padding:2px;">{{SvtDetails.MaterialDesc}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="padding:2px;">HSN Code</th>
+                                            <td style="padding:2px;">:</td>
+                                            <td style="padding:2px;">{{SvtDetails.HSNCode}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="InvoiceBody">
+                            <div class="table-responsive">
+                                <table class="table table-condensed" style="border-top: 1px solid #000;">
+                                    <thead>
+                                        <tr>
+                                            <th class="bold text-center">S.No</th>
+                                            <th class="bold text-center">DC Date</th>
+                                            <th class="bold text-center">Vechile No</th>
+                                            <th class="bold text-center">DC Number</th>
+                                            <th class="bold text-center">Qty in MT</th>
+                                            <th class="bold text-center">Rate/MT</th>
+                                            <th class="bold text-center">Total Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="Invoice in InvoiceDetails">
+                                            <td class="text-center">{{$index+1}}</td>
+                                            <td class="text-center">{{Invoice.DcDate |date:'dd-MM-yyyy'}}</td>
+                                            <td class="text-center">{{Invoice.VehicleNumber}}</td>
+                                            <td class="text-center">{{Invoice.DCNum}}</td>
+                                            <td class="text-center">{{Invoice.Quantity}}</td>
+                                            <td class="text-center">{{Invoice.UnitPrice | INR}}</td>
+                                            <td class="text-center">{{Invoice.TotalAmount | INR}}</td>
+                                        </tr>
+                                        <tr class="OrderTotal">
+                                            <td colspan="6" class="bold text-right font-15">SubTotal</td>
+                                            <td class="fc-theme bold text-center">{{TotalIncoiceAmount|INR }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" class="sbold text-right font-15">SGST {{(GST)/2}}% </td>
+                                            <td class="fc-theme sbold text-center">{{(GSTValue)/2|INR}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="6" class="sbold text-right font-15">CGST {{(GST)/2}}% </td>
+                                            <td class="fc-theme sbold text-center">{{(GSTValue)/2|INR}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="5" class="sbold text-right font-15">Cess Per MT</td>
+                                            <td class="sbold text-right font-15">{{}}</td>
+                                            <td class="fc-theme sbold text-center">{{(GSTValue)/2|INR}}</td>
+                                        </tr>
+                                        <tr class="OrderTotal">
+                                            <td colspan="6" class="bold text-right font-15">Total</td>
+                                            <td class="fc-theme bold text-center">{{TotalIncoiceAmount|INR }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="InvoiceOfficeDetail" id="footer">
+                        <div class="row">
+                            <!-- accepted payments column -->
+                            <div class="col-sm-12">
+                                <table class="table no-border no-margin">
+                                    <tr>
+                                        <td class="bold">In Words</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Rupees {{TotalIncoiceAmount | convertToWord}} Only</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">GST Num: <b>{{SvtDetails.GSTNumber}}</b></td>
+                                        <td class="bold pull-right">For Sree Venkatehswara Transport</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="">PAN Num: <b>{{SvtDetails.PANNumber}}</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td class="pull-right">Authorized Signatory</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function printDivnew() {
+        var innerContents = document.getElementById("printSectionId").innerHTML;
+        var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        popupWinindow.document.open();
+        //popupWinindow.document.write('<html><head><link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"><link href="dist/css/style.css" rel="stylesheet"></head><body onload="window.print()">' + innerContents + '</html>');
+        popupWinindow.document.write('<html><head><link rel="stylesheet" href="dist/css/bootstrap.min.css"><link href="dist/css/Invoice.css" rel="stylesheet"><link href="dist/css/InvoiceStyle.css" rel="stylesheet"></head><body onload="window.print()">' + innerContents + '</html>');
+        //popupWinindow.document.close();
+        //  popupWinindow.document.write(innerContents);
+        popupWinindow.document.close();
+        //  popupWinindow.focus();
+        //setTimeout(function(){popupWinindow.print();popupWinindow.close();}, 1000);
+    }
+
+    function printDiv() {
+        var innerContents = document.getElementById("printSectionId").innerHTML;
+        var popupWinindow = window.open('', '_blank', 'width=600,height=700,scrollbars=no,menubar=no,toolbar=no,location=no,status=no,titlebar=no');
+        popupWinindow.document.open();
+        //popupWinindow.document.write('<html><head><link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"><link href="dist/css/style.css" rel="stylesheet"></head><body onload="window.print()">' + innerContents + '</html>');
+        popupWinindow.document.write('<html><head><link rel="stylesheet" href="dist/css/bootstrap.min.css"><link href="dist/css/Invoice.css" rel="stylesheet"><link href="dist/css/InvoiceStyle.css" rel="stylesheet"></head><body >' + innerContents + '</html>');
+        //popupWinindow.document.close();
+        //  popupWinindow.document.write(innerContents);
+        popupWinindow.document.close();
+        //  popupWinindow.focus();
+        setTimeout(function () {
+            popupWinindow.print(); popupWinindow.close();
+        }, 1000);
+    }
+</script>
+<style>
+   @page 
+{
+    size:21cm 29.7cmt;
+    margin:1cm 1cm 1cm 1cm; 
+    mso-title-page:yes;
+    mso-page-orientation: portrait;
+    mso-header: header;
+    mso-footer: footer;
+}
+@page content {margin: 1cm 1cm 1cm 1cm;}
+div.content {page: content;}
+</style>

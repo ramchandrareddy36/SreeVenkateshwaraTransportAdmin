@@ -1,0 +1,115 @@
+/* .content-wrapper { */
+    /* background-color: #ecf0f5; */
+/* } */
+
+/* .appcolor { */
+    /* background-color: #fff; */
+/* } */
+
+.bntclose {
+        position: absolute;
+        line-height: 0;
+        border: 0;
+        font-size: 26px;
+        color: #e67738;
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        text-align: center;
+        right: -5px;
+        top: -16px;
+        z-index: 1;
+        border-radius: 50%;
+        /* border: 1px solid #337663; */
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.17);
+    }
+
+    .service-list {
+        position: relative;
+        display: block;
+        padding-top: 25px;
+        padding-bottom: 20px;
+    }
+
+        .service-list > ul {
+            position: relative;
+            display: block;
+            margin: 0;
+        }
+
+            .service-list > ul > li {
+                width: 20%;
+                float: left;
+            }
+
+        .service-list .media-left {
+            min-width: 80px;
+        }
+
+        .service-list .media-body {
+            vertical-align: middle;
+        }
+
+            .service-list .media-body > h4, .service-list .media-body > p {
+                font-size: 16px;
+                font-weight: 600;
+                margin: 0;
+                color: #337663;
+            }
+
+            .service-list .media-body > p {
+                font-size: 14px;
+            }
+
+    .container {
+        width: 100%;
+        max-width: 1400px;
+    }
+	
+.box-products {
+    position: relative;
+    border: 1px solid #e0dbdb;
+}
+
+.box-products > .media-left {
+    width: 36%;
+}
+
+.product-category {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    margin: 0 auto;
+    /* max-width: 340px; */
+}
+
+.box-products .product-category .img-container {
+    min-height: auto !important;
+}
+
+.box-products .product-category .img-container {
+    min-height: auto !important;
+}
+.product-category .img-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    /* padding-top: 53.646%; */
+    padding-top: 100%;
+    width: 100%;
+}
+
+.product-category .category-img {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
